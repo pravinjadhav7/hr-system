@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import HrContext from './utils/context';
+import { hrStore, InitialState } from './reducers/reducer';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HrComponent from './components/HrComponent';
+import AddHr from './components/AddHr';
 import './App.css';
 
 function App() {
+
+  const [store, hrDispatch] = React.useReducer(hrStore, InitialState);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HrContext.Provider value={[store, hrDispatch]}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={HrComponent} />
+            <Route path="/add" component={AddHr} />
+          </Switch>
+        </BrowserRouter>
+      </HrContext.Provider>
     </div>
   );
 }

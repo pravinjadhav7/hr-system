@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "employee": {
+            "name": "Richard Anderson",
+            "department": "Development",
+            "skills": "C#, JS"
+        }
+    },
+    {
+        "id": 2,
+        "employee": {
+            "name": "Dell Anna",
+            "department": "QA",
+            "skills": "Automation, Selenium"
+        }
+    }
+]
