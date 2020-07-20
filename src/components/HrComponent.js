@@ -1,6 +1,6 @@
 import React from 'react';
 import HrContext from '../utils/context';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const HrComponent = () => {
 
@@ -47,7 +47,7 @@ const HrComponent = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (employee.id == -1) {
+        if (employee.id === -1) {
             hrDispatch({ type: 'ADD', payload: employee });
         } else {
             hrDispatch({ type: 'EDIT', payload: employee });
